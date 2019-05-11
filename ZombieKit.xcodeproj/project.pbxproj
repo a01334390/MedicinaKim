@@ -24,6 +24,9 @@
 		12E0A3A31D06881A001706C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12E0A3A21D06881A001706C0 /* Assets.xcassets */; };
 		12F3B8561CED59BB00B160C2 /* NSDateComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F3B8551CED59BB00B160C2 /* NSDateComponents.swift */; };
 		12F8DEA41D04AC700062DF98 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F8DEA31D04AC700062DF98 /* UIColor.swift */; };
+		BD55AF0B2287877400A53115 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD55AF082287877300A53115 /* ViewController.swift */; };
+		BD55AF0C2287877400A53115 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD55AF092287877300A53115 /* Question.swift */; };
+		BD55AF0D2287877400A53115 /* QuestionBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD55AF0A2287877400A53115 /* QuestionBank.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +108,9 @@
 		12E0A3A21D06881A001706C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		12F3B8551CED59BB00B160C2 /* NSDateComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateComponents.swift; sourceTree = "<group>"; };
 		12F8DEA31D04AC700062DF98 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		BD55AF082287877300A53115 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BD55AF092287877300A53115 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		BD55AF0A2287877400A53115 /* QuestionBank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionBank.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +157,9 @@
 				1284346F1CDFA28A00979CD4 /* AppDelegate.swift */,
 				128434AB1CDFEA5900979CD4 /* TabBarViewController.swift */,
 				128434731CDFA28A00979CD4 /* Main.storyboard */,
+				BD55AF082287877300A53115 /* ViewController.swift */,
+				BD55AF092287877300A53115 /* Question.swift */,
+				BD55AF0A2287877400A53115 /* QuestionBank.swift */,
 				12BEB6DF1CFCF67600F093FA /* Care Plan Store */,
 				128434A31CDFE19500979CD4 /* Linked Frameworks */,
 				12F3B8571CED5C7F00B160C2 /* Utilities */,
@@ -345,13 +354,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				128434AC1CDFEA5900979CD4 /* TabBarViewController.swift in Sources */,
+				BD55AF0D2287877400A53115 /* QuestionBank.swift in Sources */,
 				12BEB6E31CFCF68C00F093FA /* CarePlanStoreManager.swift in Sources */,
 				128434701CDFA28A00979CD4 /* AppDelegate.swift in Sources */,
 				12E0A39C1D066920001706C0 /* AssessmentTaskFactory.swift in Sources */,
+				BD55AF0B2287877400A53115 /* ViewController.swift in Sources */,
 				1298914A1D9760AC00075E9C /* OCKInsightItem.swift in Sources */,
 				12A4E9731D14DB7F00855D28 /* DataHelpers.swift in Sources */,
 				129891501D97628B00075E9C /* InsightsDataManager.swift in Sources */,
 				129891181D96DEAA00075E9C /* CarePlanData.swift in Sources */,
+				BD55AF0C2287877400A53115 /* Question.swift in Sources */,
 				12F3B8561CED59BB00B160C2 /* NSDateComponents.swift in Sources */,
 				12F8DEA41D04AC700062DF98 /* UIColor.swift in Sources */,
 			);
