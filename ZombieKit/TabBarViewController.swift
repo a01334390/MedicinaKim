@@ -52,6 +52,89 @@ class TabBarViewController: UITabBarController {
     tabBar.tintColor = UIColor.darkOrange()
     tabBar.barTintColor = UIColor.lightGreen()
   }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        menuOne()
+        let alert = UIAlertController(title: "Ya termino el cuestionario", message: "Recuerda que es importante tener un seguimiento diario para saber cómo te encuentras y para que tu médico conozca tu progreso ", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func menuOne(){
+        // 1
+        let optionMenu = UIAlertController(title: nil, message: "¿Cómo te sientes hoy?", preferredStyle: .actionSheet)
+        
+        // 2
+        let deleteAction = UIAlertAction(title: "Feliz", style: .default, handler:{ (UIAlertAction) in self.menuTwo()
+        })
+        let saveAction = UIAlertAction(title: "Triste", style: .default, handler:{ (UIAlertAction) in self.menuTwo()
+        })
+        
+        // 3
+        let cancelAction = UIAlertAction(title: "Enojado", style: .default, handler:{ (UIAlertAction) in self.menuTwo()
+        })
+        let sucidideAction = UIAlertAction(title: "Suicida", style: .cancel, handler:{ (UIAlertAction) in self.menuTwo()
+        })
+        
+        // 4
+        optionMenu.addAction(deleteAction)
+        optionMenu.addAction(saveAction)
+        optionMenu.addAction(cancelAction)
+        optionMenu.addAction(sucidideAction)
+        
+        // 5
+        self.present(optionMenu, animated: true, completion: nil)
+        
+    }
+    
+    func menuTwo(){
+        // 1
+        let optionMenu = UIAlertController(title: nil, message: "¿Ya te tomaste tu medicamento?", preferredStyle: .actionSheet)
+        
+        // 2
+        let deleteAction = UIAlertAction(title: "Sí, ya me lo tome", style: .default, handler:{ (UIAlertAction) in self.menuThree()
+        })
+        let saveAction = UIAlertAction(title: "Estoy esperando para tomarla", style: .default, handler:{ (UIAlertAction) in self.menuThree()
+        })
+        
+        // 3
+        let cancelAction = UIAlertAction(title: "No, se me olvido", style: .default, handler:{ (UIAlertAction) in self.menuThree()
+        })
+        let sucidideAction = UIAlertAction(title: "No tomo medicamentos", style: .cancel, handler:{ (UIAlertAction) in self.menuThree()
+        })
+        
+        // 4
+        optionMenu.addAction(deleteAction)
+        optionMenu.addAction(saveAction)
+        optionMenu.addAction(cancelAction)
+        optionMenu.addAction(sucidideAction)
+        
+        // 5
+        self.present(optionMenu, animated: true, completion: nil)
+        
+    }
+    
+    func menuThree(){
+        // 1
+        let optionMenu = UIAlertController(title: nil, message: "¿Cómo te sientes de energía?", preferredStyle: .actionSheet)
+        
+        // 2
+        let deleteAction = UIAlertAction(title: "muy activo ", style: .default)
+        let saveAction = UIAlertAction(title: "activo", style: .default)
+        
+        // 3
+        let cancelAction = UIAlertAction(title: "sin energía", style: .default)
+        let sucidideAction = UIAlertAction(title: "exhausta", style: .cancel)
+        
+        // 4
+        optionMenu.addAction(deleteAction)
+        optionMenu.addAction(saveAction)
+        optionMenu.addAction(cancelAction)
+        optionMenu.addAction(sucidideAction)
+        
+        // 5
+        self.present(optionMenu, animated: true, completion: nil)
+    }
 
   fileprivate func createCareCardStack() -> UINavigationController {
     let viewController = OCKCareCardViewController(carePlanStore: carePlanStoreManager.store)
@@ -59,8 +142,8 @@ class TabBarViewController: UITabBarController {
     viewController.smallMaskImage = UIImage(named: "small-heart")
     viewController.maskImageTintColor = UIColor.darkGreen()
     
-    viewController.tabBarItem = UITabBarItem(title: "Zombie Training", image: UIImage(named: "carecard"), selectedImage: UIImage(named: "carecard-filled"))
-    viewController.title = "Zombie Training"
+    viewController.tabBarItem = UITabBarItem(title: "Plan médico", image: UIImage(named: "carecard"), selectedImage: UIImage(named: "carecard-filled"))
+    viewController.title = "Plan médico"
     return UINavigationController(rootViewController: viewController)
   }
   
@@ -78,7 +161,7 @@ class TabBarViewController: UITabBarController {
   
   fileprivate func createInsightsStack() -> UINavigationController {
     let viewController = OCKInsightsViewController(insightItems: [OCKInsightItem.emptyInsightsMessage()],
-                                                   headerTitle: "Zombie Check", headerSubtitle: "")
+                                                   headerTitle: "Revisión", headerSubtitle: "")
     insightsViewController = viewController
 
     
@@ -136,7 +219,7 @@ extension TabBarViewController: ORKTaskViewControllerDelegate {
 // MARK: - CarePlanStoreManagerDelegate
 extension TabBarViewController: CarePlanStoreManagerDelegate {
   func carePlanStore(_ store: OCKCarePlanStore, didUpdateInsights insights: [OCKInsightItem]) {
-    if let trainingPlan = (insights.filter { $0.title == "Zombie Training Plan" }.first) {
+    if let trainingPlan = (insights.filter { $0.title == "Plan médico" }.first) {
       insightChart = trainingPlan as? OCKBarChart
     }
 

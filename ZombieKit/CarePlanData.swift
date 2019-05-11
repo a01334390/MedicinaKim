@@ -24,8 +24,8 @@ import CareKit
 
 enum ActivityIdentifier: String {
   case cardio
-  case limberUp = "Limber Up"
-  case targetPractice = "Target Practice"
+  case limberUp = "Levantate"
+  case targetPractice = "Medicamento"
   case pulse
   case temperature
 }
@@ -34,8 +34,8 @@ class CarePlanData: NSObject {
   let carePlanStore: OCKCarePlanStore
   let contacts =
     [OCKContact(contactType: .personal,
-                name: "Shaun Riley",
-                relation: "Friend",
+                name: "Sumatta Reyna",
+                relation: "Doctor",
                 tintColor: nil,
                 phoneNumber: CNPhoneNumber(stringValue: "888-555-5512"),
                 messageNumber: CNPhoneNumber(stringValue: "888-555-5512"),
@@ -44,7 +44,7 @@ class CarePlanData: NSObject {
                 image: UIImage(named: "shaun-avatar")),
      OCKContact(contactType: .careTeam,
                 name: "Columbus Ohio",
-                relation: "Therapist",
+                relation: "Terapeuta",
                 tintColor: nil,
                 phoneNumber: CNPhoneNumber(stringValue: "888-555-5235"),
                 messageNumber: CNPhoneNumber(stringValue: "888-555-5235"),
@@ -53,7 +53,7 @@ class CarePlanData: NSObject {
                 image: UIImage(named: "columbus-avatar")),
      OCKContact(contactType: .careTeam,
                 name: "Dr Hershel Greene",
-                relation: "Veterinarian",
+                relation: "Nutriologo",
                 tintColor: nil,
                 phoneNumber: CNPhoneNumber(stringValue: "888-555-2351"),
                 messageNumber: CNPhoneNumber(stringValue: "888-555-2351"),
@@ -76,7 +76,7 @@ class CarePlanData: NSObject {
       title: "Cardio",
       text: "60 Minutes",
       tintColor: UIColor.darkOrange(),
-      instructions: "Jog at a moderate pace for an hour. If there isn't an actual one, imagine a horde of zombies behind you.",
+      instructions: "Corre a paso moderado por al menos 1h al día.",
       imageURL: nil,
       schedule:CarePlanData.dailyScheduleRepeating(occurencesPerDay: 2),
       resultResettable: true,
@@ -86,10 +86,10 @@ class CarePlanData: NSObject {
       identifier: ActivityIdentifier.limberUp.rawValue,
       groupIdentifier: nil,
       type: .intervention,
-      title: "Limber Up",
-      text: "Stretch Regularly",
+      title: "Levantate",
+      text: "Levantate regularmente",
       tintColor: UIColor.darkOrange(),
-      instructions: "Stretch and warm up muscles in your arms, legs and back before any expected burst of activity. This is especially important if, for example, you're heading down a hill to inspect a Hostess truck.",
+      instructions: "Es importante levantarte y estirarte un poco para calentarl os músculos en tus brazos, piernas y espalda.",
       imageURL: nil,
       schedule: CarePlanData.dailyScheduleRepeating(occurencesPerDay: 6),
       resultResettable: true,
@@ -99,10 +99,10 @@ class CarePlanData: NSObject {
       identifier: ActivityIdentifier.targetPractice.rawValue,
       groupIdentifier: nil,
       type: .intervention,
-      title: "Target Practice",
+      title: "Medicamento",
       text: nil,
       tintColor: UIColor.darkOrange(),
-      instructions: "Gather some objects that frustrated you before the apocalypse, like printers and construction barriers. Keep your eyes sharp and your arm steady, and blow as many holes as you can in them for at least five minutes.",
+      instructions: "Debes consumir tus 4 medicamentos del día. ",
       imageURL: nil,
       schedule: CarePlanData.dailyScheduleRepeating(occurencesPerDay: 2),
       resultResettable: true,
@@ -111,7 +111,7 @@ class CarePlanData: NSObject {
     let pulseActivity = OCKCarePlanActivity
       .assessment(withIdentifier: ActivityIdentifier.pulse.rawValue,
                   groupIdentifier: nil,
-                  title: "Pulse",
+                  title: "Hola",
                   text: "Do you have one?",
                   tintColor: UIColor.darkGreen(),
                   resultResettable: true,
@@ -152,15 +152,15 @@ class CarePlanData: NSObject {
 
 extension CarePlanData {
   func generateDocumentWith(chart: OCKChart?) -> OCKDocument {
-    let intro = OCKDocumentElementParagraph(content: "I've been tracking my efforts to avoid becoming a Zombie with ZombieKit. Please check the attached report to see if you're safe around me.")
+    let intro = OCKDocumentElementParagraph(content: "He estado midiendo mis esfuerzos con esta aplicación y me gustaría que lo vieras.")
     
     var documentElements: [OCKDocumentElement] = [intro]
     if let chart = chart {
       documentElements.append(OCKDocumentElementChart(chart: chart))
     }
     
-    let document = OCKDocument(title: "Re: Your Brains", elements: documentElements)
-    document.pageHeader = "ZombieKit: Weekly Report"
+    let document = OCKDocument(title: "Re: Reporte semanal", elements: documentElements)
+    document.pageHeader = "Reporte semanal"
     
     return document
   }

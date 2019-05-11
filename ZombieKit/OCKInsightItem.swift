@@ -24,7 +24,7 @@ import CareKit
 
 extension OCKInsightItem {
   static func emptyInsightsMessage() -> OCKInsightItem {
-    let text = "You haven't entered any data, or reports are in process. (Or you're a zombie?)"
+    let text = "No has descargado ninguna información (aun)"
     return OCKMessageItem(title: "No Insights", text: text,
                           tintColor: UIColor.darkOrange(), messageType: .tip)
   }
